@@ -4,7 +4,7 @@ import br.com.cursoudemy.produtosapi.model.Produto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("produto")
+@RequestMapping("produtos")
 public class ProdutoController {
 
     @PostMapping
