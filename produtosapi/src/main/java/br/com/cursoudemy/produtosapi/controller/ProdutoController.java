@@ -5,6 +5,7 @@ import br.com.cursoudemy.produtosapi.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -21,8 +22,14 @@ public class ProdutoController {
 
         var id = UUID.randomUUID().toString();
         produto.setId(id);
-        
+
         produtoRepository.save(produto);
         return produto;
     }
+
+    @GetMapping("/{id}")
+    public Produto obterPorId(@PathVariable("id") String id){
+        return produtoRepository.findById(id).orElse(null);
+    }
+
 }
